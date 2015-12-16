@@ -11,6 +11,15 @@
   <%= @project.ends_at %>
 </p>
 
+<h3>Tasks for this projects</h3>
+
+<% @project.tasks.each do |task|%>
+	<li>
+		<%= check_box_tag "task_done_#{task.id}", "", task.done%>
+		<%= link_to task.title, task%>
+	</li>
+<% end %>
+
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>
 
